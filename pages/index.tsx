@@ -50,56 +50,24 @@ const Home: NextPage = () => {
                 })}
             </div>
 
-            {move && (
-                <div className="flex justify-center items-center h-full w-full ">
-                    <Image
-                        src={chip}
-                        width="200px"
-                        height="200px"
-                        className="animate-spin"
-                    />
-                </div>
-            )}
-            {fade && (
-                <div className="flex justify-center items-center h-full w-full ">
-                    <Image
-                        src={chip}
-                        width="200px"
-                        height="200px"
-                        className="animate-pulse"
-                    />
-                </div>
-            )}
-            {rotate && (
-                <div className="flex justify-center items-center h-full w-full ">
-                    <Image
-                        src={chip}
-                        width="200px"
-                        height="200px"
-                        className="animate-spin"
-                    />
-                </div>
-            )}
-            {squich &&
-                <div className="flex justify-center items-center h-full w-full ">
-                    <Image
-                        src={chip}
-                        width="200px"
-                        height="200px"
-                        className="animate-bounce"
-                    />
-                </div>
-            }
-			{!squich && !move && !rotate && !fade &&
+            <div className="flex justify-center items-center h-full w-full ">
+                <Image
+                    src={chip}
+                    width="200px"
+                    height="200px"
+                    className={`${move ? "animate-spin" : ""} ${
+                        fade ? "animate-pulse" : ""
+                    } ${rotate ? "animate-spin" : ""} ${
+                        squich ? "animate-bounce" : ""
+                    } ${
+                        !move && !fade && !rotate && !squich
+                            ? "animate-none"
+                            : ""
+                    } `}
+                />
+            </div>
+			{/* TODO: add sidebar um bild zu changen  */}
 
-                <div className="flex justify-center items-center h-full w-full ">
-                    <Image
-                        src={chip}
-                        width="200px"
-                        height="200px"
-                    />
-                </div>
-			}
         </div>
     );
 };
